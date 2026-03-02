@@ -1,0 +1,17 @@
+﻿Value into the frame	Duration
+0	No Persistence
+1	]0;5min[
+2	[5;15min[
+3	[15;60min[
+4	[1h;3h[
+5	[3h;6h[
+6	[6h;12h[
+7	[12h;24h[
+8	[1;2days[
+9	[2;4days[
+10	[4;8days[
+11	[8;15days[
+12	[15;30days[
+13	[30;90days[
+14	[90;180days[
+15	More than 180 days

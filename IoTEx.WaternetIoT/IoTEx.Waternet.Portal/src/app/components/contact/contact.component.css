@@ -1,0 +1,13 @@
+.contact {
+  padding: 0 20px;
+}
+
+.info p {
+  display: inline-block;
+}
+
+.info a {
+  display: inline-block;
+  text-decoration: none;
+  color: orange;
+}

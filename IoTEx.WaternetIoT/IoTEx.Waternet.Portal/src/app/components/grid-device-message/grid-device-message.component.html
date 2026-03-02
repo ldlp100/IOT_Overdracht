@@ -1,0 +1,31 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (dataStateChange)="onStateChange($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+  </ng-template>
+
+  <kendo-grid-column field="id" title="Id" [width]="300"></kendo-grid-column>
+  <kendo-grid-column field="received" title="Received" [width]="200">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.received)}}
+    </ng-template> 
+  </kendo-grid-column>
+  <kendo-grid-command-column [width]="100">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoButton (click)="showdata(dataItem)">Show data</button>
+    </ng-template>
+  </kendo-grid-command-column>
+
+</kendo-grid>
+
+<app-grid-device-message-content [document]="document" />

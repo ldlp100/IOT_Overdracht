@@ -1,0 +1,52 @@
+
+Json Message:
+{
+	"MUID":"04e7858a-cb97-4920-801e-ae6734b2de31",
+	"DUID":"DUM0059AC0000151B4E",
+	"RT":"2018-10-30T13:17:40.7516434Z",
+	"DVT":"MCS108",
+	"NT":2,
+	"AUID":"STU4",
+	"LAT":52.34503,
+	"LNG":4.53942,
+	"EVTS":[
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"BAROMETER.AVG","EV":1642.87},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"TEMPERATURE.AVG","EV":5.11},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"HUMIDITY.AVG","EV":68.0},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"ANGLE_X.AVG","EV":0.0},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"ANGLE_Y.AVG","EV":0.0},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"ANGLE_Z.AVG","EV":177.0},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"VIBRATION_AMP.AVG","EV":0.0},
+		{"ET":1,"ED":"2018-10-30T13:17:40.7516434Z","EN":"VIBRATION_FREQ.AVG","EV":0.0}
+		]
+	,"NI":{"SNR":-4.0,"STA":"7276ff000b030ced","RSSI":-119.0,"SEQ":0,"SF":0
+}
+}
+
+{	
+	"devEui":"0059ac0000151b4e",
+	"appEui":"0000000000000000",
+	"devAddr":"30000cbc",
+	"clusterId":62,
+	"msgId":"5bd859f44f05a8000efde843",
+	"fcntDown":1252,
+	"fcntUp":9777,
+	"userdata":{
+		"fport":1,
+		"payload":"0200fb1f01ff440000fc000000000000",
+		"maxretry":1,"ttl":0},
+	"motetx":{
+		"freq":868.5,
+		"datr":"SF8BW125",
+		"modu":"LORA",
+		"codr":"4/5",
+		"adr":true},
+	"gwrx":[{
+		"eui":"7276ff000b030ced",
+		"ant":0,
+		"time":"2018-10-30T13:17:39.436461Z",
+		"timefromgateway":true,
+		"chan":7,
+		"rfch":0,
+		"rssic":-119,
+		"lsnr":-4.0}]}

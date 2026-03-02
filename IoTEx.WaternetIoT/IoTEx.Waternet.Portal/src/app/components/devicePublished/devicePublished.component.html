@@ -1,0 +1,169 @@
+<div class="device">
+  <div class="row" *ngIf="!initiated">
+    <div class="col-12"> 
+      Loading Data...
+    </div>
+  </div>
+  <div class="row" *ngIf="devicePublished==null && initiated">
+    <div class="col-12"> Device is NOT Published!</div>
+  </div>
+  <div *ngIf="devicePublished!=null && initiated">
+    <div class="row iot-table">
+      <div class="col-12">
+        <h4>Device Info</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" style="margin:10px">
+        <table class="table table-striped">
+          <tr>
+            <td>Device id:</td>
+            <td>{{devicePublished?.deviceId}}</td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>{{devicePublished?.deviceName}}</td>
+          </tr>
+          <tr>
+            <td>Asset UID:</td>
+            <td>{{devicePublished?.assetUID}}</td>
+          </tr>
+          <tr>
+            <td>Latitude:</td>
+            <td>{{devicePublished?.location.latitude}}</td>
+          </tr>
+          <tr>
+            <td>Longitude:</td>
+            <td>{{devicePublished?.location.longitude}}</td>
+          </tr>
+          <tr>
+            <td>Active:</td>
+            <td> <div style="width:100px" class="active" [ngClass]="{'isactive': device?.isActive}">{{ devicePublished?.isActive ? 'YES' : 'NO' }}</div></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <tr>
+            <td>Type:</td>
+            <td>{{deviceInfos?.deviceTypeName}}</td>
+            </tr>
+          <tr>
+            <td>Batch:</td>
+            <td>{{deviceInfos?.deviceBatchName}}</td>
+          </tr>
+          <tr>
+            <td>Firmware:</td>
+            <td>{{deviceInfos?.deviceFirmwareName}}</td>
+          </tr>
+          <tr>
+            <td>Published By User:</td>
+            <td>{{devicePublished?.publishedByUsername}}</td>
+          </tr>
+          <tr>
+            <td>Published Date:</td>
+            <td>{{devicePublished?.publishedDate}}</td>
+          </tr>
+          <tr>
+            <td>IsTracing:</td>
+            <td> <div style="width:100px" class="active isNotTracing " [ngClass]="{'isTracing': device?.isTraced}">{{ devicePublished?.isTraced ? 'YES' : 'NO' }}</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <hr/>
+    <div class="row iot-table">
+        <div class="col-1">
+         
+                <button kendoButton themeColor="primary" size="medium" (click)="refresh()"><kendo-svg-icon [icon]="icons.reload" /> Refresh</button>
+        </div>
+        <div class="col-4">
+           
+              <h4>Last Messages:&nbsp;&nbsp;{{device? this.formatDateTime(this.lastMessage) : ''}}</h4>
+           
+        </div>  
+    </div>
+    <hr/>
+    <div class="row" *ngIf="this.deviceMessageContent!=null">
+      <div *ngFor="let event of this.deviceMessageContent.events" class="iot-KPI col-md k-widget k-content" style="width:200px">
+        <p class="io-KPI-Label">{{event.name}}</p>
+        <p class="io-KPI-Value">{{getEventValue(event)}}</p>
+        <p class="io-KPI-Label">{{event.unit}}</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="row iot-table">
+      <div class="col-12">
+        <h4>Device Charts</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12" style="margin:10px">
+        <app-device-chart [devicePublished]="this.devicePublished"></app-device-chart>
+      </div>
+    </div>
+    <hr/>
+    <!-- <div class="row">
+      <button kendoButton><kendo-svg-icon [icon]="icons.save"/>Publish all changes</button>
+    </div> -->
+    <div class="row iot-table">
+      <div class="col-12">
+        <h4>Device Basic Configuration</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-device-published-basic [devicePublished]="this.devicePublished"/>
+      </div>
+    </div>
+    
+    <div class="row iot-table">
+      <div class="col-12">
+        <h4>Device Advanced Configuration</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-device-published-configuration [devicePublished]="this.devicePublished"/>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-12" class="iot-tab">
+        Measurements
+      </div>
+    </div>
+      
+    <app-device-published-measurement [devicePublished]="this.devicePublished"/>
+      
+    <div class="row">
+      <div class="col-12" class="iot-tab">
+        Alerts Information
+      </div>
+    </div>
+      
+    <app-device-published-alert [devicePublished]="this.devicePublished"/>
+      
+    
+    <div class="row">
+      <div class="col-12" class="iot-tab">
+        States Information
+      </div>
+    </div> -->
+<!--     
+    <app-device-published-state [devicePublished]="this.devicePublished"/> -->
+    
+    <div class="row">
+      <div class="col-12" class="iot-tab">
+        Location
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12" class="iot-tab">
+        <app-project-map [latitude]="this.devicePublished.location.latitude" 
+                        [longitude]="this.devicePublished.location.longitude"
+                        [assetUID]="this.devicePublished.assetUID" 
+                          [mapContainerId]="'map1'"/>
+      </div>
+    </div>
+  </div>
+</div>

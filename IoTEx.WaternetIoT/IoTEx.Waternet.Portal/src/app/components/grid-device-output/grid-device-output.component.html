@@ -1,0 +1,73 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+    <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add Device Output</button>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+    </ng-template>
+    <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+    <kendo-grid-column field="pc" title="Process Code" [width]="150"></kendo-grid-column>
+    <kendo-grid-column field="unitTypeName" title="Unit" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="eventStateTypeName" title="Alert" [width]="100">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatAlert(dataItem.eventStateTypeName, dataItem.eventStateTypeIsAlert)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="eventStateTypeName" title="State" [width]="100">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatState(dataItem.eventStateTypeName, dataItem.eventStateTypeIsAlert)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="measurementTypeName" title="Measurement" [width]="100"></kendo-grid-column>
+
+    <kendo-grid-column field="created" title="Created" [width]="175" [hidden]="true">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.created)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="createdByName" title="CreatedByName" [hidden]="true"/>
+    <kendo-grid-column field="updated" title="Updated" [width]="175" [hidden]="true">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.updated)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="updatedByName" title="UpdatedByName" [hidden]="true"/>
+ 
+    <kendo-grid-command-column title="command" [width]="140">
+        <ng-template kendoGridCellTemplate>
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+            <button kendoGridRemoveCommand>Delete</button>
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
+
+<app-grid-device-output-edit [model]="editDataItem" [isNew]="isNew" [device]="device"
+                        (save)="saveHandler($event)"
+                        (cancel)="cancelHandler($event)"/>
+<kendo-dialog title="Please confirm"
+              *ngIf="itemToRemove"
+              (close)="confirmRemove(false)">
+    <p style="margin: 30px; text-align: center;">
+        Are you sure you want to delete device standard {{ itemToRemove.name }}?
+    </p>
+    <kendo-dialog-actions>
+    <button kendoButton (click)="confirmRemove(false)">No</button>
+    <button kendoButton themeColor="primary"
+                (click)="confirmRemove(true)">
+        Yes
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog>

@@ -1,0 +1,70 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new networkAPISetting' : 'Edit networkAPISetting' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._networkAPISetting!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="NetworkAPISetting Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+  
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+   
+          <input formControlName="name" kendoTextBox #name_ctrl />
+  
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="description_ctrl" text="Description"></kendo-label>
+   
+          <input formControlName="description" kendoTextBox #description_ctrl />
+  
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="value_ctrl" text="Value *" ></kendo-label>
+          <kendo-textbox #value_ctrl [clearButton]="true" 
+            formControlName="value" >
+          </kendo-textbox> 
+          
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="isSecret_ctrl" text="IsSecret"></kendo-label>
+     
+            <input type="checkbox" formControlName="isSecret" #isSecret_ctrl />
+    
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+
+        <kendo-label [for]="isDeviceInfo_ctrl" text="IsDeviceInfo"></kendo-label>
+    
+        <input type="checkbox" formControlName="isDeviceInfo" #isDeviceInfo_ctrl />
+
+        </kendo-formfield>
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

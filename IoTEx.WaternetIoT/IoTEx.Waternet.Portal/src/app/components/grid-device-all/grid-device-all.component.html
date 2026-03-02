@@ -1,0 +1,135 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            [filterable]="filterMode"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <!-- <button kendoGridAddCommand>Add Device</button> -->
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+  </ng-template>
+  <kendo-grid-column field="id" title="Id" [hidden]="false" [width]="175" > 
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button class="device" (click)="showDevice(dataItem.id)">{{dataItem.id}}</button>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="isActive" title="IsActive" [width]="100" [hidden]="false" filter="boolean"/>
+  <kendo-grid-column field="isTraced" title="Traced" [width]="100" [hidden]="false" filter="boolean"/>
+  <kendo-grid-column field="assetUID" title="AssetUID" [width]="175">  </kendo-grid-column>
+  <kendo-grid-column field="name" title="Name" [width]="250" />
+  <kendo-grid-column field="lastMessage" title="LastMessage" [width]="175">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.lastMessage)}}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="imei" title="IMEI" [width]="175"  [hidden]="false" />
+  <kendo-grid-column field="lorA_DEVEUI" title="LORA DEVUI" [width]="200" [hidden]="false" />
+  
+  <kendo-grid-column field="deviceTypeName" title="Device Type" />
+  <kendo-grid-column field="deviceBatchName" title="Batch"  [hidden]="false" />
+  <kendo-grid-column field="deviceTypeFirmwareName" title="Firmware"  [hidden]="false" />
+  
+  
+  <kendo-grid-column field="isTraced" title="IsTraced" [width]="100" [hidden]="true" />
+  
+  <kendo-grid-column field="long" title="Longitude" [width]="100" [hidden]="true" />
+  <kendo-grid-column field="lat" title="Latitude" [width]="100" [hidden]="true" />
+  <kendo-grid-column field="serialNr" title="SerialNr" [width]="100" [hidden]="true" />
+  <kendo-grid-column field="harwareVersion" title="HarwareVersion" [width]="100" [hidden]="true" />
+  
+  
+  <kendo-grid-column field="lorA_OTAA_APPEUI" title="LORA_OTAA_APPEUI" [width]="200" [hidden]="true" />
+  <kendo-grid-column field="lorA_OTAA_APPKEY" title="LORA_OTAA_APPKEY" [width]="200" [hidden]="true" />
+  
+  <kendo-grid-column field="imeiAppKey" title="IMEIAppKey" [width]="100" [hidden]="true" />
+  <kendo-grid-column field="iccidD" title="ICCID" [width]="200" [hidden]="true" />
+  <kendo-grid-column field="installedDate" title="InstalledDate" [width]="175" [hidden]="true">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.installedDate)}}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="publishedDocDate" title="PublishedDocDate" [width]="175" [hidden]="true">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.publishedDocDate)}}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-command-column title="" [width]="60">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoButton *ngIf="dataItem.publishedDocDate!=null"   (click)="getPublish(dataItem)" [svgIcon]="svgPublishDoc" title="Get Published Device Document"></button>
+    </ng-template>
+  </kendo-grid-command-column>
+  <kendo-grid-command-column title="" [width]="100" >
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button kendoButton (click)="startPublish(dataItem)" [svgIcon]="svgPublishDoc" title="Publish Device">Publish</button>
+    </ng-template>
+  </kendo-grid-command-column>
+
+
+  <kendo-grid-column field="created" title="Created" [width]="175" [hidden]="true">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.created)}}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="createdByName" title="CreatedByName" [hidden]="true" />
+  <kendo-grid-column field="updated" title="Updated" [width]="175" [hidden]="true">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatDateTime(dataItem.updated)}}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="updatedByName" title="UpdatedByName" [hidden]="true" />
+
+  <kendo-grid-command-column title="command" [width]="140">
+    <ng-template kendoGridCellTemplate>
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Delete</button>
+    </ng-template>
+  </kendo-grid-command-column>
+  <div *kendoGridDetailTemplate="let dataItem">
+    <app-grid-device-detail [deviceTypeId]="dataItem.deviceTypeId" [deviceBatchId]="dataItem.deviceBatchId" [deviceId]="dataItem.id" />
+  </div>
+</kendo-grid>
+
+<app-grid-device-edit [model]="editDataItem" [isNew]="isNew" 
+                        (save)="saveHandler($event)"
+                        (cancel)="cancelHandler($event)"/>
+<kendo-dialog title="Please confirm"
+              *ngIf="itemToRemove"
+              (close)="confirmRemove(false)">
+    <p style="margin: 30px; text-align: center;">
+        Are you sure you want to delete device standard {{ itemToRemove.name }}?
+    </p>
+    <kendo-dialog-actions>
+    <button kendoButton (click)="confirmRemove(false)">No</button>
+    <button kendoButton themeColor="primary"
+                (click)="confirmRemove(true)">
+        Yes
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog>
+<kendo-dialog title="Published Device Content"
+              *ngIf="showPublished"
+              (close)="closePublishedWindow()">
+              
+    <kendo-textarea [rows]="30" [cols]="100" [value]="publishedContent">
+        
+    </kendo-textarea>
+    <kendo-dialog-actions>
+    
+    <button kendoButton themeColor="primary"
+                (click)="closePublishedWindow()">
+        OK
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog>

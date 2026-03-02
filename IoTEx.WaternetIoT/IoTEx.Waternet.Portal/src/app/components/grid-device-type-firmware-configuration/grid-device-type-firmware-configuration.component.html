@@ -1,0 +1,78 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+    <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add DeviceType Firmware Configuration</button>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+    </ng-template>
+    <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Name" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="symbol" title="Symbol" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="defaultValue" title="Value" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="typeName" title="TypeName" [width]="200"></kendo-grid-column>
+    <kendo-grid-column field="categories" title="Categories" [width]="200"></kendo-grid-column>
+    <kendo-grid-column field="description" title="Description" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="minLength" title="MinLength" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="maxLength" title="MaxLength" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="minValue" title="MinValue" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="maxValue" title="MaxValue" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="role" title="Role" [width]="125">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                {{this.formatConfigurationRole(dataItem.role)}}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="created" title="Created" [width]="175">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.created)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="createdByName" title="CreatedByName" [hidden]="true"/>
+    <kendo-grid-column field="updated" title="Updated" [width]="175" [hidden]="true">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.updated)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="updatedByName" title="UpdatedByName" [hidden]="true"/>
+ 
+    <kendo-grid-command-column title="command" [width]="140">
+        <ng-template kendoGridCellTemplate>
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+            <!-- <button kendoGridRemoveCommand>Delete</button> -->
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>
+
+<app-grid-device-type-firmware-configuration-edit [model]="editDataItem" [isNew]="isNew"
+                        (save)="saveHandler($event)"
+                        (cancel)="cancelHandler($event)">
+</app-grid-device-type-firmware-configuration-edit>
+<!-- <kendo-dialog title="Please confirm"
+              *ngIf="itemToRemove"
+              (close)="confirmRemove(false)">
+    <p style="margin: 30px; text-align: center;">
+        Are you sure you want to delete device standard {{ itemToRemove.name }}?
+    </p>
+    <kendo-dialog-actions>
+    <button class="k-button" (click)="confirmRemove(false)">No</button>
+    <button class="k-button k-primary"
+                (click)="confirmRemove(true)"
+                primary="true">
+        Yes
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog> -->

@@ -1,0 +1,63 @@
+
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            [filterable]="filterMode"
+            (dataStateChange)="onStateChange($event)">
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+      <!-- <button kendoButton (click)="extractCSV()">Extract CSV</button> -->
+    </ng-template>
+    <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+    <kendo-grid-column field="assetUID" title="AssetUID">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <button class="device" (click)="device(dataItem.deviceId)">{{dataItem.assetUID}}</button>
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="lastMessage" title="Last Message"></kendo-grid-column>
+    <kendo-grid-column field="deviceName" title="Name"></kendo-grid-column>
+    <kendo-grid-column field="isActive" title="IsActive" [filter]="'boolean'"></kendo-grid-column>
+    <kendo-grid-column field="installedDate" title="InstalledDate" [width]="175" [hidden]="true">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        {{this.formatDateTime(dataItem.installedDate)}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="deviceTypeName" title="Type"></kendo-grid-column>
+    <kendo-grid-column field="deviceFirmName" title="Firmware"></kendo-grid-column>
+    <kendo-grid-column field="deviceBatchName" title="Batch"></kendo-grid-column>
+    <kendo-grid-command-column title="" [width]="100">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <button kendoButton  (click)="startPublish(dataItem)" [svgIcon]="svgPublishDoc" title="Publish Device">Publish</button>
+      </ng-template>
+    </kendo-grid-command-column>
+    <!-- <kendo-grid-command-column title="command" [width]="140">
+    <ng-template kendoGridCellTemplate>
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+    </ng-template>
+  </kendo-grid-command-column> -->
+    <kendo-grid-column field="created" title="Created" [width]="175" [hidden]="true">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        {{this.formatDateTime(dataItem.created)}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="createdByName" title="CreatedByName" [hidden]="true" />
+    <kendo-grid-column field="updated" title="Updated" [width]="175" [hidden]="true">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        {{this.formatDateTime(dataItem.updated)}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="updatedByName" title="UpdatedByName" [hidden]="true" />
+    <div *kendoGridDetailTemplate="let dataItem">
+      <app-grid-device-detail [deviceTypeId]="dataItem.deviceTypeId" [deviceBatchId]="dataItem.deviceBatchId" [deviceId]="dataItem.deviceId" />
+    </div>
+  </kendo-grid>
+  <p>Locations</p>
+  <app-project-map [data]="data"></app-project-map>

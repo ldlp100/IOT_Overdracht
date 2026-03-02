@@ -1,0 +1,13 @@
+{
+"deviceId" : "396C51",
+"payload" : "0850e65bac71e23fb49af604",
+"time" : 1538028101,
+"duplicate" : false,
+"snr" : 8.57,
+"station" : "0441",
+"avgSignal" : 19.88,
+"lat" : 52.0,
+"lng" : 5.0,
+"rssi" :-136.00,
+"seqNumber" : 843
+}

@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using IoTEx.WaternetIoT.Model.PortalModels;
+using static IoTEx.WaternetIoT.Model.PortalModels.DeviceTypeModel;
+
+namespace IoTEx.WaternetIoT.Model.ViewModels
+{
+    public class DeviceTypeViewModel
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
+        public Guid SupplierId { get; set; }
+        public string? SupplierName { get; set; }        
+        public DateTime? Created { get; set; }
+        public DateTime? Updated { get; set; }
+        public string? CreatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
+        public Guid? CreatedById { get; set; }
+        public Guid? UpdatedById { get; set; }
+        
+
+        public static Dictionary<string, string> DefineMapper()
+        {
+            Dictionary<string, string> mapper = new Dictionary<string, string>();
+            mapper.Add("SupplierName", "Supplier.Name");
+            return mapper;
+        }
+
+        public DeviceTypeViewModel()
+        {
+        }
+        public DeviceTypeViewModel(DeviceTypeModel model)
+        {
+            Id = model.Id;
+            Name = model.Name;
+            Description = model.Description;            
+            SupplierId = model.SupplierId;
+            SupplierName = (model.Supplier == null) ? "" : model.Supplier.Name;
+            Created = model.Created;
+            Updated = model.Updated;
+            CreatedBy = model.CreatedBy.Username;
+            UpdatedBy = model.UpdatedBy.Username;
+            CreatedById = model.CreatedById;
+            UpdatedById = model.UpdatedById;
+        }
+        public DeviceTypeModel Create(AppUserModel user)
+        {
+            DeviceTypeModel model = new DeviceTypeModel();
+            model.Name = Name;
+            model.Description = Description;
+            model.SupplierId = SupplierId;
+            model.Created = DateTime.Now;
+            model.Updated = DateTime.Now;
+            model.CreatedById = user.Id;
+            model.UpdatedById = user.Id;
+            return model;
+        }
+        public DeviceTypeModel Update(DeviceTypeModel model, AppUserModel user)
+        {
+            
+            model.Name = Name;
+            model.Description = Description;
+            model.SupplierId = SupplierId;
+            model.Updated = DateTime.Now;
+            model.UpdatedById = user.Id;
+            return model;
+        }
+
+    }
+}

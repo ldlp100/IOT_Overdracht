@@ -1,0 +1,33 @@
+
+<div style="margin:10px;">
+<button kendoButton [primary]="true" (click)="save()">Save</button><br/>
+<form novalidate class="k-form" [formGroup]="editForm" style="display: flex; flex-wrap: wrap; gap: 16px; width:300px">
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="name_ctrl" text="Name"></kendo-label>  
+        <input formControlName="name" kendoTextBox #name_ctrl />   
+    </kendo-formfield>
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="assetUID_ctrl" text="Asset UID"></kendo-label>  
+        <input formControlName="assetUID" kendoTextBox #assetUID_ctrl />
+    </kendo-formfield>
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="installedDate_ctrl" text="Installed Date"></kendo-label> 
+        <kendo-datepicker formControlName="installedDate" placeholder="Installation Date" #installedDate_ctrl></kendo-datepicker>
+    </kendo-formfield>
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="isActive_ctrl" text="Is Active"></kendo-label>
+        <kendo-checkbox formControlName="isActive" #isActive_ctrl></kendo-checkbox>
+    </kendo-formfield>
+
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="latitude_ctrl" text="Latitude"></kendo-label>  
+        <kendo-numerictextbox formControlName="lat" #latitude_ctrl format="n6"></kendo-numerictextbox>
+    </kendo-formfield>
+    <kendo-formfield class="col-12">
+        <kendo-label [for]="longitude_ctrl" text="Longitude"></kendo-label>  
+        <kendo-numerictextbox formControlName="long" #longitude_ctrl format="n6"></kendo-numerictextbox>
+    </kendo-formfield>
+    
+    <button kendoButton type="button" #locationDevice_ctrl (click)="openLocationPicker()">Get Location</button>
+</form>
+</div>

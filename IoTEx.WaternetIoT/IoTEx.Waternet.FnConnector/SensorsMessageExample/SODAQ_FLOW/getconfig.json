@@ -1,0 +1,224 @@
+{
+  "value": [
+    {
+      "id": null,
+      "name": "SampleInterval",
+      "symbol": "sm",
+      "description": "SampleInterval",
+      "role": null,
+      "value": "2",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "AggregateInterval",
+      "symbol": "aggint",
+      "description": "AggregateInterval",
+      "role": null,
+      "value": "0",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "UploadInterval",
+      "symbol": "upint",
+      "description": "UploadInterval",
+      "role": null,
+      "value": "0",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "h0NAP",
+      "symbol": "lv0",
+      "description": "h0NAP",
+      "role": null,
+      "value": "100",
+      "type": "System.Int16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "h1NAP",
+      "symbol": "lv1",
+      "description": "h1NAP",
+      "role": null,
+      "value": "300",
+      "type": "System.Int16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "h2NAP",
+      "symbol": "lv2",
+      "description": "h2NAP",
+      "role": null,
+      "value": "1",
+      "type": "System.Int16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "h3NAP",
+      "symbol": "lv3",
+      "description": "h3NAP",
+      "role": null,
+      "value": "1",
+      "type": "System.Int16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "linearCoeff",
+      "symbol": "lcof",
+      "description": "linearCoeff",
+      "role": null,
+      "value": "2",
+      "type": "System.Single, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "powerCoeff",
+      "symbol": "pcof",
+      "description": "powerCoeff",
+      "role": null,
+      "value": "50",
+      "type": "System.Single, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "SensorSettleMS",
+      "symbol": "set",
+      "description": "SensorSettleMS",
+      "role": null,
+      "value": "5000",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor1Min",
+      "symbol": "smin1",
+      "description": "Sensor1Min",
+      "role": null,
+      "value": "36",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor2Min",
+      "symbol": "smin2",
+      "description": "Sensor2Min",
+      "role": null,
+      "value": "36",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor3Min",
+      "symbol": "smin3",
+      "description": "Sensor3Min",
+      "role": null,
+      "value": "36",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor1Max",
+      "symbol": "smax1",
+      "description": "Sensor1Max",
+      "role": null,
+      "value": "351",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor2Max",
+      "symbol": "smax2",
+      "description": "Sensor2Max",
+      "role": null,
+      "value": "351",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "Sensor3Max",
+      "symbol": "smax3",
+      "description": "Sensor3Max",
+      "role": null,
+      "value": "351",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "TempMin",
+      "symbol": "tmin",
+      "description": "TempMin",
+      "role": null,
+      "value": "0",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "TempMax",
+      "symbol": "tmax",
+      "description": "TempMax",
+      "role": null,
+      "value": "100",
+      "type": "System.UInt16, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "FlowEquation",
+      "symbol": "sm",
+      "description": "FlowEquation",
+      "role": null,
+      "value": "1",
+      "type": "System.SByte, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    },
+    {
+      "id": null,
+      "name": "SensorEnableMask",
+      "symbol": "sem",
+      "description": "SensorEnableMask",
+      "role": null,
+      "value": "15",
+      "type": "System.SByte, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "updatedById": null,
+      "updatedByName": null
+    }
+  ]
+}

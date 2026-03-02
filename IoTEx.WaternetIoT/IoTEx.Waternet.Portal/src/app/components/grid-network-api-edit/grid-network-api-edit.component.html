@@ -1,0 +1,76 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new networkAPI' : 'Edit networkAPI' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._networkAPI!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="NetworkAPI Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+  
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+   
+          <input formControlName="name" kendoTextBox #name_ctrl />
+  
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="description_ctrl" text="Description"></kendo-label>
+   
+          <input formControlName="description" kendoTextBox #description_ctrl />
+  
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="isLORA_ctrl" text="IsLora"></kendo-label>
+   
+          <input type="checkbox" formControlName="isLORA" #isLORA_ctrl />
+  
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="isSigFox_ctrl" text="IsSigFox"></kendo-label>
+     
+            <input type="checkbox" formControlName="isSigFox" #isSigFox_ctrl />
+    
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+
+        <kendo-label [for]="isLTM_ctrl" text="IsLTM"></kendo-label>
+    
+        <input type="checkbox" formControlName="isLTM" #isLTM_ctrl />
+
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+
+        <kendo-label [for]="isNBIoT_ctrl" text="IsNBIoT"></kendo-label>
+    
+        <input type="checkbox" formControlName="isNBIoT" #isNBIoT_ctrl />
+
+        </kendo-formfield>
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

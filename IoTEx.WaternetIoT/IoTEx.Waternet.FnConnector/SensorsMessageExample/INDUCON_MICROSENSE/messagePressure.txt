@@ -1,0 +1,13 @@
+{
+"deviceId" : "36D160",
+"payload" : "084ff95b4f01914045420800",
+"time" : 1526457904,
+"duplicate" : false,
+"snr" : 18.37,
+"station" : "1396",
+"avgSignal" : 31.37,
+"lat" : 52.0,
+"lng" : 5.0,
+"rssi" : -133.00,
+"seqNumber" : 1601
+}

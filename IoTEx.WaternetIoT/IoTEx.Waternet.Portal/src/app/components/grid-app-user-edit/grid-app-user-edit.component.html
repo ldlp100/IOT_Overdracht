@@ -1,0 +1,50 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new user' : 'Edit deviceType user' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._appUser!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="User Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+  
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="username_ctrl" text="Username *"></kendo-label>
+   
+          <input formControlName="username" kendoTextBox #username_ctrl />
+  
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="role_ctrl" text="Role *"></kendo-label>
+        
+            <kendo-dropdownlist [data]="appUserData" formControlName="role" kendoTextBox #role_ctrl
+              [valueField]="'id'" [textField]="'text'" [valuePrimitive]="true"/>
+        
+        </kendo-formfield>
+
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+.k-body{
+    font-family: Arial, sans-serif;
+    
+}
+
+.custom-marker {
+    background-color: #0078d4;
+    border: 1px solid #0078d4;
+    color:white;
+    padding: 5px;
+    border-radius: 4px;
+    width: 120px; /* Set width to allow text wrapping */
+    white-space: normal; /* Allow text to wrap */
+    overflow: visible; /* Ensure text doesn’t get cropped */
+    text-align: center; /* Center the text */
+  }
+.iot-KPI {
+    /* color: #1e90ff; */
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    height: 200px;
+    min-width: 200px;
+    /* background-color: #e7d4d4; */
+}
+.io-KPI-Value {
+  padding: 20px;
+  font-size: 20px;
+}
+.io-KPI-Label {
+  padding: 5px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+.iot-tab {
+  /* color: #1e90ff; */
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  /* background-color: #e7d4d4; */
+}

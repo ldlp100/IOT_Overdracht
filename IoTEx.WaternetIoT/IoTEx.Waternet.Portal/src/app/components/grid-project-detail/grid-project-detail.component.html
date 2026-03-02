@@ -1,0 +1,19 @@
+<kendo-tabstrip>
+  <kendo-tabstrip-tab [title]="'Devices'" [selected]="true">
+    <ng-template kendoTabContent>
+      <app-grid-project-device [projectId]="project.id" />
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'Users'">
+    <ng-template kendoTabContent>
+      <app-grid-project-user [project]="project" />
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'Documents'">
+    <ng-template kendoTabContent>
+      Documents
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip>

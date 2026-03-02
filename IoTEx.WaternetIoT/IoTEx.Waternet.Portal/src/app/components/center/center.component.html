@@ -1,0 +1,33 @@
+<kendo-tabstrip>
+  <kendo-tabstrip-tab [title]="'Projects'">
+    <ng-template kendoTabContent>
+      <app-grid-project/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'Device Types'" [selected]="true">
+    <ng-template kendoTabContent>
+      <app-grid-device-type/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip-tab [title]="'Devices'">
+    <ng-template kendoTabContent>
+      <app-grid-device-all [showAll]="true"/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip-tab [title]="'Parsers'">
+    <ng-template kendoTabContent>
+      <app-grid-parser/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip-tab [title]="'Suppliers'">
+    <ng-template kendoTabContent>
+      <app-grid-supplier/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+  <kendo-tabstrip-tab [title]="'Settings'">
+    <ng-template kendoTabContent>
+      <app-grid-setting-detail/>
+    </ng-template>
+  </kendo-tabstrip-tab>
+<kendo-tabstrip>

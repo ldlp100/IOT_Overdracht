@@ -1,0 +1,15 @@
+[
+{
+    "id": "96218b19-bda8-4c94-b0a0-97a16a3fe4e7",
+    "errorType": "UNKNOWN",
+    "iotHubDeviceId": "IOTDEV_NBIOT_T_MOBILE",
+    "payload": "{\"reports\":[],\"registrations\":[{\"deviceType\":\"device\",\"serialNumber\":\"IMEI:867724030048992\",\"timestamp\":1560316447374,\"make\":\"Generic\",\"model\":\"Sensor\",\"groupName\":\"TMNL.STARTERKIT.CON_0000000486\",\"imsi\":\"N/A\",\"protocol\":\"N/A\",\"tags\":\"N/A\",\"subscriptionId\":\"33d76331-18d7-4103-b192-b2548e6c5be0\",\"deviceProps\":{\"device/0/imsi\":\"IMSI:901405700007656\",\"device/0/model\":\"Sensor\",\"uplinkMsg/0/data\":\"a8020a060800101a18103283020918972f4a6b010000103c1d6666264122f00164e6613ebba5613ec1a0613eb2aa613e5cec613e91c4613e91c4613eb0ac613e3309623ebba5613eb2aa613eb0ac613e5cec613e4df6613e61e8613eb2aa613e5fe9613e48fa613eb0ac613ebba5613e4df6613ebba5613e9bbc613eb2aa613eb0ac613eb0ac613e46fc613e4df6613e8cc7613e7dd2613e3d03623eb2aa613eb2aa613ebba5613e83ce613eacb0613e55f0613ec1a0613e76d8613ebba5613ec1a0613eb0ac613ec69c613ec1a0613ebba5613e99bd613e4df6613eb0ac613eb0ac613eb0ac613ec1a0613ebba5613ec1a0613ec69c613ec69c613ed392613e64e6613ecd98613e83ce613ece95613e4a0f3836373732343033303034383939325a070879106318c501\",\"device/0/manufacturer\":\"Generic\",\"connectivity/0/port\":\"62509\",\"connectivity/0/mncmcc\":\"\",\"location/0/longitude\":\"\",\"device/0/endPointClientName\":\"IMEI:867724030048992\",\"connectivity/0/cellid\":\"\",\"connectivity/0/ip\":\"10.0.0.166\",\"location/0/radius\":\"\",\"connectivity/0/rat\":\"\",\"location/0/latitude\":\"\",\"connectivity/0/apn\":\"\"}}],\"deregistrations\":[],\"updates\":[],\"expirations\":[],\"responses\":[]}",
+    "network": "NBIoT_TMOBILE",
+    "networkId": "",
+    "_rid": "P698AKEUGABnAwAAAAAAAA==",
+    "_self": "dbs/P698AA==/colls/P698AKEUGAA=/docs/P698AKEUGABnAwAAAAAAAA==/",
+    "_etag": "\"5901a1af-0000-0d00-0000-5d008a280000\"",
+    "_attachments": "attachments/",
+    "_ts": 1560316456
+}
+]

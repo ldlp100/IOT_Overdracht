@@ -1,0 +1,95 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new project' : 'Edit project' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._project!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="Project Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+          
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+   
+          <input formControlName="name" kendoTextBox #name_ctrl />
+  
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="description_ctrl" text="Description"></kendo-label>
+   
+          <input formControlName="description" kendoTextBox #description_ctrl />
+  
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="isActive_ctrl" text="IsActive"></kendo-label>
+   
+          <input type="checkbox" formControlName="isActive" #isActive_ctrl />
+  
+        </kendo-formfield>
+        
+        <!-- <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="targetDBString_ctrl" text="TargetDBString"></kendo-label>
+   
+          <input formControlName="targetDBString" kendoTextBox #targetDBString_ctrl />
+  
+        </kendo-formfield> -->
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="targetDBId_ctrl" text="Target Data Store"></kendo-label>
+   
+          <kendo-dropdownlist [data]="targetDBData" formControlName="targetDBId" kendoTextBox #targetDBId_ctrl
+          [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+  
+      </kendo-formfield>
+
+        
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="accessLevel_ctrl" text="AccessLevel *"></kendo-label>
+   
+          <kendo-dropdownlist [data]="projectData" formControlName="accessLevel" kendoTextBox #accessLevel_ctrl
+            [valueField]="'id'" [textField]="'text'" [valuePrimitive]="true"/>
+  
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+          <kendo-label [for]="beginDate_ctrl" text="Begin Date"></kendo-label>          
+          <kendo-datetimepicker formControlName="beginDate" placeholder="Begin Date" #beginDate_ctrl></kendo-datetimepicker>
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="endDate_ctrl" text="End Date"></kendo-label>
+          <kendo-datetimepicker formControlName="endDate" placeholder="End Date" #endDate_ctrl></kendo-datetimepicker>
+        </kendo-formfield>
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

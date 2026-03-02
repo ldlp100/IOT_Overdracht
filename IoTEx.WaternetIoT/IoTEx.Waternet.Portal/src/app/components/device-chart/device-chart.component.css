@@ -1,0 +1,8 @@
+.iot-tab{
+    background-color:#616264; 
+    padding:5px; 
+}
+.k-chart-tooltip {
+  pointer-events: auto !important;
+  z-index: 10000;
+}

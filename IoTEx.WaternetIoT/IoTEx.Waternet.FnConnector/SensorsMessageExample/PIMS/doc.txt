@@ -1,0 +1,170 @@
+{
+  "MsgName": null,
+  "Id": "1c87ef68-65ef-4b3f-b67c-2f5673919e95",
+  "CFGUID": "5bd0b426-867a-4a66-a4c8-31b01e2ab646",
+  "Namespace": null,
+  "MUID": "4b36266f-89e3-4e80-9974-ba9f3d3d025b",
+  "DMUID": "950392200",
+  "DeviceID": "2aa06cee-ffed-4f31-a29f-f02df20f7e8f",
+  "DeviceNetworkUID": "0004A30B001FC304",
+  "DeviceGroupID": null,
+  "DeviceSerialNr": null,
+  "RcvTime": "/Date(1561624752344)/",
+  "DeviceType": "SODAQ_4X4_20_FLOW_METER_TEMP",
+  "NetworkType": 2,
+  "OriginalMessage": null,
+  "AssetUID": "STUW04",
+  "Latitude": 52.34503,
+  "Longitude": 4.53942,
+  "Events": [
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "INT_VOLTAGE.ACTUAL",
+      "Value": 4.33,
+      "Info": null,
+      "EventUnit": "V",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "EXT_VOLTAGE.ACTUAL",
+      "Value": 13.9,
+      "Info": null,
+      "EventUnit": "V",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_UPSTREAM.ACTUAL",
+      "Value": 7.242,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_DOWNSTREAM.ACTUAL",
+      "Value": 7.05,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_PLATE.ACTUAL",
+      "Value": 6.849,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "FLOW.ACTUAL",
+      "Value": 87030.5234375,
+      "Info": null,
+      "EventUnit": "m3_per_hour",
+      "PC": "STUW04_1326"
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_UPSTREAM.ACTUAL",
+      "Value": 7.236,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_DOWNSTREAM.ACTUAL",
+      "Value": 7.05,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_PLATE.ACTUAL",
+      "Value": 6.851,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "FLOW.ACTUAL",
+      "Value": 84301.671875,
+      "Info": null,
+      "EventUnit": "m3_per_hour",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_UPSTREAM.ACTUAL",
+      "Value": 7.236,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_DOWNSTREAM.ACTUAL",
+      "Value": 7.05,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "NAP_LEVEL_PLATE.ACTUAL",
+      "Value": 6.852,
+      "Info": null,
+      "EventUnit": "mNAP",
+      "PC": null
+    },
+    {
+      "Type": 1,
+      "Date": "/Date(1561624752344)/",
+      "EDUID": "6/27/2019 8:39:12 AM",
+      "Name": "FLOW.ACTUAL",
+      "Value": 83962.7421875,
+      "Info": null,
+      "EventUnit": "m3_per_hour",
+      "PC": null
+    }
+  ],
+  "NetworkInfo": {
+    "SNR": -22,
+    "Station": "7276FF002E062DF0",
+    "RSSI": -136,
+    "Sequence": 0,
+    "SF": 12,
+    "DT": "/Date(1561624752344)/",
+    "CNT": 1
+  }
+}

@@ -1,0 +1,32 @@
+<kendo-tabstrip>  
+    <kendo-tabstrip-tab [title]="'Network API'" [selected]="true">
+      <ng-template kendoTabContent>
+        <app-grid-network-api/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Users'">
+      <ng-template kendoTabContent>
+        <app-grid-app-user/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Units'">
+      <ng-template kendoTabContent>
+        <app-grid-unit-type/> 
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'App Configurations'">
+      <ng-template kendoTabContent>
+        <app-grid-app-configuration/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+
+    <kendo-tabstrip-tab [title]="'Target DB'">
+        <ng-template kendoTabContent>
+          <app-grid-target-db/>
+        </ng-template>
+      </kendo-tabstrip-tab>
+  <kendo-tabstrip>
+  

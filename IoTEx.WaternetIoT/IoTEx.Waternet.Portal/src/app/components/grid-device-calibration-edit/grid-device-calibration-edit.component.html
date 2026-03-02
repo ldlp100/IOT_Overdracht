@@ -1,0 +1,83 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new device Calibration' : 'Edit device Calibration' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceCalibration!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceCalibration Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="deviceTypeFirmware2MeasurementTypeId_ctrl" text="Measurement *"></kendo-label>
+     
+            <kendo-dropdownlist [data]="measerementTypeData" formControlName="deviceTypeFirmware2MeasurementTypeId" kendoTextBox #deviceTypeFirmware2MeasurementTypeId_ctrl
+            [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="minReal_ctrl" text="MinSensor"></kendo-label>
+   
+          <kendo-numerictextbox formControlName="minReal" #minReal_ctrl [format]="'n5'" [decimals]="5"/>
+        
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="maxReal_ctrl" text="MaxSensor"></kendo-label>
+   
+          <kendo-numerictextbox formControlName="maxReal" #maxReal_ctrl [format]="'n5'" [decimals]="5"/>
+        
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="minMeas_ctrl" text="MinMeas"></kendo-label>
+   
+          <kendo-numerictextbox formControlName="minMeas" #minMeas_ctrl [format]="'n5'" [decimals]="5"/>
+        
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="maxMeas_ctrl" text="MaxMeas"></kendo-label>
+   
+          <kendo-numerictextbox formControlName="maxMeas" #maxMeas_ctrl [format]="'n5'" [decimals]="5"/>
+        
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="offsetValue_ctrl" text="Offset"></kendo-label>
+   
+          <kendo-numerictextbox formControlName="offsetValue" #offsetValue_ctrl [format]="'n5'" [decimals]="5"/>
+        
+        </kendo-formfield>
+          
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

@@ -1,0 +1,71 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+    <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add Network API</button>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+    </ng-template>
+    <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Name" [width]="200"></kendo-grid-column>
+    <kendo-grid-column field="description" title="Description" [width]="200"></kendo-grid-column>
+    <kendo-grid-column field="isLORA" title="IsLoRa" [width]="100"></kendo-grid-column>
+    <!-- <kendo-grid-column field="isSigFox" title="IsSigFox" [width]="100"></kendo-grid-column> -->
+    <kendo-grid-column field="isLTM" title="IsLTM" [width]="100"></kendo-grid-column>
+    <kendo-grid-column field="isNBIoT" title="IsNBIoT" [width]="100"></kendo-grid-column>
+
+    <kendo-grid-column field="created" title="Created" [width]="175" [hidden]="true">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.created)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="createdByName" title="CreatedByName" [hidden]="true"/>
+    <kendo-grid-column field="updated" title="Updated" [width]="175" [hidden]="true">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            {{this.formatDateTime(dataItem.updated)}}
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="updatedByName" title="UpdatedByName" [hidden]="true"/>
+ 
+    <kendo-grid-command-column title="command" [width]="140">
+        <ng-template kendoGridCellTemplate>
+            <button kendoGridEditCommand [primary]="true">Edit</button>
+            <button kendoGridRemoveCommand>Delete</button>
+        </ng-template>
+    </kendo-grid-command-column>
+    <div *kendoGridDetailTemplate="let dataItem">
+        <app-grid-network-api-detail [networkAPI]="dataItem"></app-grid-network-api-detail>
+    </div>
+</kendo-grid>
+
+<app-grid-network-api-edit [model]="editDataItem" [isNew]="isNew"
+                        (save)="saveHandler($event)"
+                        (cancel)="cancelHandler($event)">
+</app-grid-network-api-edit>
+<kendo-dialog title="Please confirm"
+              *ngIf="itemToRemove"
+              (close)="confirmRemove(false)">
+    <p style="margin: 30px; text-align: center;">
+        Are you sure you want to delete device standard {{ itemToRemove.name }}?
+    </p>
+    <kendo-dialog-actions>
+    <button kendoButton (click)="confirmRemove(false)">No</button>
+    <button kendoButton themeColor="primary"
+                (click)="confirmRemove(true)">
+        Yes
+    </button>
+    </kendo-dialog-actions>
+</kendo-dialog>

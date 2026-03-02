@@ -1,0 +1,13 @@
+{
+"deviceId" : "7D4BBE",
+"payload" : "c18f63dc1b607f8dd9daa9f2",
+"time" : 1526457904,
+"duplicate" : false,
+"snr" : 13.69,
+"station" : "0441",
+"avgSignal" : 31.37,
+"lat" : 52.0,
+"lng" : 5.0,
+"rssi" : -107.00,
+"seqNumber" : 1601
+}

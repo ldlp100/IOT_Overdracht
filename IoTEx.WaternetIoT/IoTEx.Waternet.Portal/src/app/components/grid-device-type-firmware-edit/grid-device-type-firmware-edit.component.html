@@ -1,0 +1,75 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new deviceType Firmware' : 'Edit deviceType Firmware' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceTypeFirmware!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceType Firmware Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+  
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+   
+          <input formControlName="name" kendoTextBox #name_ctrl />
+  
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="description_ctrl" text="Description"></kendo-label>
+     
+            <input formControlName="description" kendoTextBox #description_ctrl />
+    
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="isConfigurable_ctrl" text="IsConfigurable"></kendo-label>
+     
+            <input type="checkbox" formControlName="isConfigurable" #isConfigurable_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="isUsed_ctrl" text="IsUsed"></kendo-label>
+     
+            <input type="checkbox" formControlName="isUsed" #isUsed_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="parserId_ctrl" text="ParserName *"></kendo-label>
+     
+            <kendo-dropdownlist [data]="parserData" formControlName="parserId" kendoTextBox #parserId_ctrl
+            [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+    
+        </kendo-formfield>
+
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

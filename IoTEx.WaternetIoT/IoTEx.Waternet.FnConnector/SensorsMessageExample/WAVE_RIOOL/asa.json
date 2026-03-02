@@ -1,0 +1,31 @@
+[
+  {
+    "payload": {
+      "reports": [
+        {
+          "serialNumber": "IMEI:867724030046566",
+          "timestamp": 1542962595104,
+          "subscriptionId": "3fc23594-a9d8-4e55-9492-4dc2992eb421",
+          "resourcePath": "uplinkMsg/0/data",
+          "value": "a8020a060800101a180d328302090524c13f67010000103c1d6666b04122f001f216613912f444394db8143912f4443912f444391cea3c39d534793912f44439f2166139f7115d39f216613912f444390503513912f4443939cc243926e03439f7115d3926e0343912f44439f216613912f44439f7115d39f216613926e0343912f4443939cc243921e5383926e0343912f4443912f444394db8143912f4443912f444394db8143912f4443912f44439f216613926e03439f2166139f21661394db8143926e0343939cc243912f4443912f44439f216613926e0343926e0343912f4443912f4443912f44439f2166139f216613926e03439f216613926e0343926e0343912f44439f2166139f21661394a0f3836373732343033303034363536365a070885011063181c"
+        }
+      ],
+      "registrations": [],
+      "deregistrations": [],
+      "updates": [],
+      "expirations": [],
+      "responses": []
+    },
+    "EventProcessedUtcTime": "2019-04-23T18:43:51.7796146Z",
+    "PartitionId": 2,
+    "EventEnqueuedUtcTime": "2019-04-23T18:43:51.706Z",
+    "IoTHub": {
+      "MessageId": null,
+      "CorrelationId": null,
+      "ConnectionDeviceId": "IOTDEV_NBIOT_T_MOBILE",
+      "ConnectionDeviceGenerationId": "636913870742807838",
+      "EnqueuedTime": "2019-04-23T18:43:51.694Z",
+      "StreamId": null
+    }
+  }
+]

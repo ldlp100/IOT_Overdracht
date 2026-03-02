@@ -1,0 +1,25 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            [filterable]="filterMode"
+            (dataStateChange)="onStateChange($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+  </ng-template>
+  <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+  <kendo-grid-column field="projectName" title="Project Name">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button class="device2project" (click)="deviceProject(dataItem.projectId)">{{dataItem.projectName}}</button>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="projectIsActive" title="IsActive" [width]="150" [filter]="'boolean'"></kendo-grid-column>
+  <kendo-grid-column field="projectDescription" title="Description"></kendo-grid-column>
+</kendo-grid>

@@ -1,0 +1,25 @@
+<kendo-tabstrip>
+    <kendo-tabstrip-tab [title]="'Batches'" [selected]="true">
+      <ng-template kendoTabContent>
+        <app-grid-device-batch [deviceType]="deviceType"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Firmwares'">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-firmware [deviceType]="deviceType"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'NetworkAPis'">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-2-network-api [deviceType]="deviceType"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Documents'">
+      <ng-template kendoTabContent>
+        Documents
+      </ng-template>
+    </kendo-tabstrip-tab>
+  <kendo-tabstrip>

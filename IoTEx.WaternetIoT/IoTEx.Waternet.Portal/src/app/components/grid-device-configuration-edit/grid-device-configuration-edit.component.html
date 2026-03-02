@@ -1,0 +1,51 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new device Configuration' : 'Edit device Configuration' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceConfiguration!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceConfiguration Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="deviceTypeFirmwareConfigurationId_ctrl" text="Configuration *"></kendo-label>
+     
+            <kendo-dropdownlist [data]="configurationTypeData" formControlName="deviceTypeFirmwareConfigurationId" kendoTextBox #deviceTypeFirmwareConfigurationId_ctrl
+            [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="value_ctrl" text="Value"></kendo-label>
+     
+            <input kendoTextBox formControlName="value"  #value_ctrl />
+    
+          </kendo-formfield>
+          
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

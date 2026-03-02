@@ -1,0 +1,30 @@
+{
+	"devEui":"0059AC0000151B4C",
+	"devAddr":"02000402",
+	"cluster":{"id":2},
+	"fPort":1,"fCntDown":2,"fCntUp":37,"adr":true,"confirmed":false,"encrypted":false,
+	"payload":"0200143206d850006f41000000000000",
+	"recvTime":1554715855792,
+	"ulFrequency":868.1,
+	"modulation":"LORA",
+	"dataRate":"SF7BW125",
+	"codingRate":"4/5",
+	"gwCnt":1,
+	"gwInfo":[
+		{
+			"gwEui":"7276FF002E0628DD",
+			"rfRegion":"EU868",
+			"rssi":-93,
+			"rssis":-93,
+			"rssisd":0,
+			"snr":14,
+			"latitude":52.33982,
+			"longitude":4.91711,
+			"altitude":53,
+			"channel":5,
+			"radioId":0,
+			"antenna":0,
+			"frequencyOffset":-707
+		}
+	]
+}

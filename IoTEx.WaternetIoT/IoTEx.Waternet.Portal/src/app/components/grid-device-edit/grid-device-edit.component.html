@@ -1,0 +1,154 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new device' : 'Edit device' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._device!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="Device Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+
+        <div class="row" style="padding-top: 20px;">
+           <div class="col-6">
+                <p style="font-weight: bold;">Device:</p>
+
+                <kendo-formfield>
+  
+                    <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+                    <input formControlName="name" kendoTextBox #name_ctrl />
+            
+                </kendo-formfield>
+                <kendo-formfield>
+    
+                    <kendo-label [for]="assetUID_ctrl" text="AssetUID"></kendo-label>                
+                    <input formControlName="assetUID" kendoTextBox #assetUID_ctrl />
+            
+                </kendo-formfield>
+
+                <kendo-formfield>
+
+                    <kendo-label [for]="isActive_ctrl" text="IsActive"></kendo-label>
+                    <input type="checkbox" formControlName="isActive" #isActive_ctrl />
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="isTraced_ctrl" text="IsTraced"></kendo-label>                
+                    <input type="checkbox" formControlName="isTraced" #isTraced_ctrl />
+                </kendo-formfield>
+
+                <kendo-formfield>
+
+                    <kendo-label [for]="serialNr_ctrl" text="SerialNr"></kendo-label>
+                    <input formControlName="serialNr" kendoTextBox #serialNr_ctrl />
+            
+                </kendo-formfield>
+
+                <kendo-formfield>
+
+                    <kendo-label [for]="harwareVersion_ctrl" text="HarwareVersion"></kendo-label>
+                    <input formControlName="harwareVersion" kendoTextBox #harwareVersion_ctrl />
+        
+                </kendo-formfield>
+        
+                <kendo-formfield>
+          
+                    <kendo-label [for]="deviceTypeFirmwareId_ctrl" text="FirmwareVersion *"></kendo-label>
+                    <kendo-dropdownlist [data]="deviceTypeFirmwareData" formControlName="deviceTypeFirmwareId" kendoTextBox #deviceTypeFirmwareId_ctrl
+                    [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true" />
+            
+                </kendo-formfield>
+
+                <kendo-formfield>
+  
+                    <kendo-label for="installedDate_ctrl" text="Installation Date"></kendo-label>
+                    
+                    <kendo-datetimepicker formControlName="installedDate" placeholder="Installation Date" #installedDate_ctrl></kendo-datetimepicker>
+  
+                </kendo-formfield>
+
+
+
+            </div>
+            <div class="col-6">
+                <p style="font-weight: bold;">Location:</p>
+                <kendo-formfield>
+  
+                    <kendo-label [for]="long_ctrl" text="Longitude"></kendo-label>
+                    <kendo-numerictextbox formControlName="long" #long_ctrl [format]="'n5'" [decimals]="5"/>
+            
+                </kendo-formfield>
+            
+                <kendo-formfield>
+          
+                    <kendo-label [for]="lat_ctrl" text="Latitude"></kendo-label>
+                    <kendo-numerictextbox formControlName="lat" #lat_ctrl [format]="'n5'" [decimals]="5"/>
+            
+                </kendo-formfield>
+                <p style="font-weight: bold;">Network:</p>
+                <kendo-formfield>
+
+                    <kendo-label [for]="LORA_DEVEUI_ctrl" text="LORA_DEVEUI"></kendo-label>        
+                    <input formControlName="lorA_DEVEUI" kendoTextBox #LORA_DEVEUI_ctrl />
+        
+                </kendo-formfield>
+        
+                <kendo-formfield>
+        
+                    <kendo-label [for]="LORA_OTAA_APPEUI_ctrl" text="LORA_OTAA_APPEUI"></kendo-label>            
+                    <input formControlName="lorA_OTAA_APPEUI" kendoTextBox #LORA_OTAA_APPEUI_ctrl />
+            
+                </kendo-formfield>
+        
+                <kendo-formfield>
+        
+                    <kendo-label [for]="LORA_OTAA_APPKEY_ctrl" text="LORA_OTAA_APPKEY"></kendo-label>            
+                    <input formControlName="lorA_OTAA_APPKEY" kendoTextBox #LORA_OTAA_APPKEY_ctrl />
+            
+                </kendo-formfield>
+               
+                <kendo-formfield>
+
+                    <kendo-label [for]="IMEI_ctrl" text="IMEI"></kendo-label>            
+                    <input formControlName="imei" kendoTextBox #IMEI_ctrl />
+            
+                </kendo-formfield>
+        
+                <kendo-formfield>
+            
+                    <kendo-label [for]="IMEIAppKey_ctrl" text="IMEIAppKey"></kendo-label>                
+                    <input formControlName="imeiAppKey" kendoTextBox #IMEIAppKey_ctrl />
+            
+                </kendo-formfield>
+        
+                <kendo-formfield>
+        
+                    <kendo-label [for]="ICCID_ctrl" text="ICCID"></kendo-label>            
+                    <input formControlName="iccid" kendoTextBox #ICCID_ctrl />
+            
+                </kendo-formfield>
+            </div> 
+        </div>
+  
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

@@ -1,0 +1,122 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new deviceType Firmware Configuration' : 'Edit deviceType Firmware Configuration' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceTypeFirmwareConfiguration!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceType Firmware Configuration Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+  
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="name_ctrl" text="Name *"></kendo-label>
+   
+          <input formControlName="name" kendoTextBox #name_ctrl />
+  
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="symbol_ctrl" text="Symbol"></kendo-label>
+     
+            <input formControlName="symbol" kendoTextBox #symbol_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="defaultValue_ctrl" text="DefaultValue"></kendo-label>
+     
+            <input formControlName="defaultValue" kendoTextBox #defaultValue_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="typeName_ctrl" text="TypeName"></kendo-label>
+     
+            <input formControlName="typeName" kendoTextBox #typeName_ctrl />
+    
+        </kendo-formfield>
+        
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="categories_ctrl" text="Categories"></kendo-label>
+     
+            <input formControlName="categories" kendoTextBox #categories_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="description_ctrl" text="Description"></kendo-label>
+     
+            <input formControlName="description" kendoTextBox #description_ctrl />
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="minLength_ctrl" text="MinLength"></kendo-label>
+     
+            <kendo-numerictextbox formControlName="minLength" #minLength_ctrl [format]="'n5'" [decimals]="5"/>
+    
+        </kendo-formfield>
+       
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="maxLength_ctrl" text="MaxLength"></kendo-label>
+     
+            <kendo-numerictextbox formControlName="maxLength" #maxLength_ctrl [format]="'n5'" [decimals]="5"/>
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="minValue_ctrl" text="MinValue"></kendo-label>
+     
+            <kendo-numerictextbox formControlName="minValue" #minValue_ctrl [format]="'n5'" [decimals]="5"/>
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="maxValue_ctrl" text="MaxValue"></kendo-label>
+     
+            <kendo-numerictextbox formControlName="maxValue" #maxValue_ctrl [format]="'n5'" [decimals]="5"/>
+    
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="role_ctrl" text="Role *"></kendo-label>
+        
+            <kendo-dropdownlist [data]="deviceTypeFirmwareConfigurationData" formControlName="role" kendoTextBox #role_ctrl
+              [valueField]="'id'" [textField]="'text'" [valuePrimitive]="true"/>
+        
+        </kendo-formfield>
+
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>

@@ -1,0 +1,42 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new NetworkAPI' : 'Edit NetworkAPI' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceType2NetworkAPI!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceType2NetworkAPI Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+
+        <kendo-formfield class="col-12">
+  
+            <kendo-label [for]="networkAPIId_ctrl" text="NetworkAPI *"></kendo-label>
+     
+            <kendo-dropdownlist [data]="deviceType2NetworkAPIData" formControlName="networkAPIId" kendoTextBox #networkAPIId_ctrl
+            [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+    
+        </kendo-formfield>
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

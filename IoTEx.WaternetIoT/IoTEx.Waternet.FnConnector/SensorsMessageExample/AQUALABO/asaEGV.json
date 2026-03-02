@@ -1,0 +1,59 @@
+[
+
+  {
+    "payload": {
+        
+	  "reports":[],
+      "registrations": 
+	  [
+			{
+				"deviceType":"device",
+				"serialNumber": "IMEI:356726109446344",
+				"timestamp":1582095621380,
+				"make":"Generic",
+				"model":"Sensor",
+				"groupName":"TMNL.STARTERKIT.CON_0000000486",				
+				"imsi":"N/A",
+				"protocol":"N/A",
+				"tags":"N/A",
+				"subscriptionId":"2254dea9-917b-4f85-a64a-428f871b7dad",
+				"deviceProps":
+				{
+					"device/0/imsi":"IMSI:901405700007706",
+					"device/0/model":"Sensor",
+					"uplinkMsg/0/data":"304231343032313330373030303344343032314530303031303030333030303130313031303130303030334233444139343130313031303230313030303033423344334233443031303130333031303030303342334443393343",
+					"device/0/manufacturer":"Generic",
+					"connectivity/0/port":"33410",
+					"device/0/manufacturer":"Generic",
+					"connectivity/0/port":"33410",
+					"connectivity/0/mncmcc":"",
+					"location/0/longitude":"",
+					"device/0/endPointClientName":"IMEI:356726109446344",
+					"connectivity/0/cellid":"",
+					"connectivity/0/ip":"10.0.0.157",
+					"location/0/radius":"",
+					"connectivity/0/rat":"",
+					"location/0/latitude":"",
+					"connectivity/0/apn":""
+					
+				}
+			}
+		],	
+      "deregistrations": [],
+      "updates": [],
+      "expirations": [],
+      "responses": []
+    },
+    "EventProcessedUtcTime": "2019-04-23T18:43:51.7796146Z",
+    "PartitionId": 2,
+    "EventEnqueuedUtcTime": "2019-04-23T18:43:51.706Z",
+    "IoTHub": {
+      "MessageId": null,
+      "CorrelationId": null,
+      "ConnectionDeviceId": "IOTDEV_NBIOT_T_MOBILE",
+      "ConnectionDeviceGenerationId": "636913870742807838",
+      "EnqueuedTime": "2019-04-23T18:43:51.694Z",
+      "StreamId": null
+    }
+  }
+]

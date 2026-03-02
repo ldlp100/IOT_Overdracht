@@ -1,0 +1,56 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [sort]="gridState.sort"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (remove)="removeHandler($event)"
+            (add)="addHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add User</button>
+    <button kendoButton (click)="refreshGrid($event)">Refresh</button>
+  </ng-template>
+  <kendo-grid-column field="id" title="Id" [hidden]="true"></kendo-grid-column>
+  <kendo-grid-column field="userName" title="UserName"></kendo-grid-column>
+  <kendo-grid-column field="role" title="Role" [width]="200">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      {{this.formatAppUserRole(dataItem.role)}}
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-command-column title="command" [width]="140">
+    <ng-template kendoGridCellTemplate>
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Delete</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
+
+<app-grid-project-user-edit [model]="editDataItem" [isNew]="isNew"
+                       (save)="saveHandler($event)"
+                       (cancel)="cancelHandler($event)">
+</app-grid-project-user-edit>
+<kendo-dialog title="Please confirm"
+              *ngIf="itemToRemove"
+              (close)="confirmRemove(false)">
+  <p style="margin: 30px; text-align: center;">
+    Are you sure you want to delete device standard {{ itemToRemove.name }}?
+  </p>
+  <kendo-dialog-actions>
+    <button kendoButton (click)="confirmRemove(false)">No</button>
+    <button kendoButton themeColor="primary"
+            (click)="confirmRemove(true)">
+      Yes
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
+

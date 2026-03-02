@@ -1,0 +1,47 @@
+<kendo-tabstrip>
+    <kendo-tabstrip-tab [title]="'Messages'" [selected]="true">
+      <ng-template kendoTabContent>
+        <app-grid-device-message [deviceType]="deviceType" [deviceBatch]="deviceBatch" [device]="device" />
+      </ng-template>
+    </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [title]="'Location'" >
+        <ng-template kendoTabContent>
+          <app-project-map [device]="device" [mapContainerId]="'map1'"/>
+        </ng-template>
+      </kendo-tabstrip-tab>
+    <kendo-tabstrip-tab [title]="'Process codes'">
+      <ng-template kendoTabContent>
+            <app-grid-device-output [deviceType]="deviceType" [deviceBatch]="deviceBatch" [device]="device"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Calibrations'">
+        <ng-template kendoTabContent>
+            <app-grid-device-calibration [deviceType]="deviceType" [deviceBatch]="deviceBatch" [device]="device"/>
+        </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Configurations'">
+        <ng-template kendoTabContent>
+            <app-grid-device-configuration [deviceType]="deviceType" [deviceBatch]="deviceBatch" [device]="device"/>
+        </ng-template>
+    </kendo-tabstrip-tab>
+
+    <kendo-tabstrip-tab [title]="'Projects'">
+        <ng-template kendoTabContent>
+            <app-grid-device-project [device]="device"/>
+        </ng-template>
+    </kendo-tabstrip-tab>
+
+    <!-- <kendo-tabstrip-tab [title]="'QRCode'">
+        <ng-template kendoTabContent>
+            QRCode
+        </ng-template>
+    </kendo-tabstrip-tab> -->
+
+    <kendo-tabstrip-tab [title]="'Documents'">
+        <ng-template kendoTabContent>
+            Documents
+        </ng-template>
+    </kendo-tabstrip-tab>
+  <kendo-tabstrip>

@@ -1,0 +1,13 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+  <kendo-dialog-titlebar><p>Message Content</p></kendo-dialog-titlebar>
+  <kendo-textarea [rows]="30" [cols]="100" [value]="content"></kendo-textarea>
+  
+  <kendo-dialog-actions>
+
+    <button kendoButton themeColor="primary" (click)="onCancel($event)">OK</button>
+
+  </kendo-dialog-actions>
+
+
+</kendo-dialog>

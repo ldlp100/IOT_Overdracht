@@ -1,0 +1,30 @@
+<kendo-grid [data]="gridView"
+            kendoGridSelectBy="id"
+            [pageSize]="gridState.take"
+            [skip]="gridState.skip"
+            [pageable]="true"
+            [sortable]="true"
+            [reorderable]="true"
+            [resizable]="true"
+            [columnMenu]="{ filter: true }"
+            [filter]="gridState.filter"
+            (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)"
+            (save)="saveHandler($event)"
+            (dataStateChange)="onStateChange($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoButton [primary]="true" (click)="publish()">Save</button>
+  </ng-template>
+  <kendo-grid-column field="name" title="Name" [width]="200"></kendo-grid-column>
+  <kendo-grid-column field="value" title="Value" ></kendo-grid-column>
+  <kendo-grid-column field="description" title="Description"></kendo-grid-column>
+  <kendo-grid-command-column title="command" [width]="140">
+    <ng-template kendoGridCellTemplate>
+      <button kendoGridEditCommand ThemeColor="Primary">Edit</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
+
+<app-grid-device-configuration-edit [model]="editDataItem" [isNew]="isNew" [device]="device"
+                                    (save)="saveHandler($event)"
+                                    (cancel)="cancelHandler($event)" />

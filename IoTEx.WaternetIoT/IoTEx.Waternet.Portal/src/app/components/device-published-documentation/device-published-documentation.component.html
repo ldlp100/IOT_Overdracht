@@ -1,0 +1,4 @@
+<div *ngFor="let attachment of this.attachments">
+  <p>{{attachment? attachment?.objectType : '...'}} - {{attachment? attachment?.attachType : '...'}} - -</p>
+  <a routerLink="/">{{attachment? attachment?.url : '...'}}</a> <!--TODO-->
+</div>

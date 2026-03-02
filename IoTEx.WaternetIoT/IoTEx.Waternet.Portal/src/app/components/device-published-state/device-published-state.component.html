@@ -1,0 +1,14 @@
+<div class="row">
+  <div *ngFor="let state of this.states" class="col-4">
+      <div>
+          <label class="name">{{state?.name}}</label>
+          
+          <div *ngFor="let value of state.values; last as isLast">
+            <label class="value">{{value?.value}}</label>  
+            <label>{{value?.name}}</label>
+              
+                    
+          </div>
+      </div>
+  </div>
+</div>

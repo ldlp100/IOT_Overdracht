@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "IoTEx.Waternet.UDPServer": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

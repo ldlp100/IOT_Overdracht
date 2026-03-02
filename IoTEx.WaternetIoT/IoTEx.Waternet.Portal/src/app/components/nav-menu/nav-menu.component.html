@@ -1,0 +1,62 @@
+<div style="padding-bottom:20px">
+  <kendo-appbar position="top">
+    <kendo-appbar-section>
+      <button kendoButton
+              fillMode="flat"
+              class="overflow-button"
+              #anchor
+              (click)="onToggle()">
+        <kendo-svg-icon [icon]="icons.menu"></kendo-svg-icon>
+      </button>
+      <kendo-popup [anchor]="anchor.element" *ngIf="showNavbar" [margin]="margin">
+        <div class="content">
+          <ul>
+            <li><a (click)="routerlink('')">Home</a></li>
+            <li ><a (click)="routerlink('userproject')">My IoT Projects</a></li>
+            <li *ngIf="isAdmin()"><a (click)="routerlink('center')">IoT Center</a></li>
+            <li><a (click)="routerlink('about')">About</a></li>
+            <li><a (click)="routerlink('contact')">Contact</a></li>
+          </ul>
+        </div>
+      </kendo-popup>
+    </kendo-appbar-section>
+
+    <kendo-appbar-section class="title">
+      <h1 class="title">IoT Center</h1>
+    </kendo-appbar-section>
+
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <!-- <kendo-appbar-section>
+      <button kendoButton
+              fillMode="flat"
+              class="overflow-button">
+        <kendo-svg-icon [icon]="icons.inbox"></kendo-svg-icon>
+      </button>
+    </kendo-appbar-section> -->
+
+    <!-- <span class="k-appbar-separator"></span> -->
+
+    <kendo-appbar-section>
+      <button kendoButton
+              fillMode="flat"
+              class="overflow-button"
+              #anchorUser
+              (click)="onToggleUser()">
+        <kendo-svg-icon [icon]="icons.user"></kendo-svg-icon>
+      </button>
+      <kendo-popup [anchor]="anchorUser.element" *ngIf="showUser" [margin]="marginUser">
+        <div class="user">
+          <div class="head">
+            <p>User Information</p>
+            <button (click)="closeToggleUser()"><kendo-svg-icon [icon]="icons.close"></kendo-svg-icon></button>
+          </div>
+          <div class="info">
+            <p>{{getUsername()}}</p>
+            <button (click)="logout()">Sign out</button>
+          </div>
+        </div>
+      </kendo-popup>
+    </kendo-appbar-section>
+  </kendo-appbar>
+</div>

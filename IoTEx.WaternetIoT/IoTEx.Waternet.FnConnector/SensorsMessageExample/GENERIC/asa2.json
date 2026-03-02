@@ -1,0 +1,19 @@
+[
+  {
+    "payload": {
+      "imei": "356726109430637",
+      "payload": "3042453331353032303430443035303744333032303130303031303030303030"
+    },
+  "EventProcessedUtcTime": "2019-04-23T18:43:51.7796146Z",
+  "PartitionId": 2,
+  "EventEnqueuedUtcTime": "2019-04-23T18:43:51.706Z",
+    "IoTHub": {
+      "MessageId": null,
+      "CorrelationId": null,
+      "ConnectionDeviceId": "IOTDEV_NBIOT_T_MOBILE",
+      "ConnectionDeviceGenerationId": "636913870742807838",
+      "EnqueuedTime": "2019-04-23T18:43:51.694Z",
+      "StreamId": null
+    }
+  }
+]

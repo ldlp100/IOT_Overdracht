@@ -1,0 +1,102 @@
+<kendo-dialog *ngIf="active" [width]="getModalWidth()" [height]="650" (close)="closeForm()">
+
+    <kendo-dialog-titlebar>
+  
+      {{ isNew ? 'Add new deviceOutput' : 'Edit deviceOutput' }}
+  
+    </kendo-dialog-titlebar>
+  
+    <div *ngIf="this._deviceOutput!==null">
+  
+      <form novalidate class="k-form" [formGroup]="editForm">
+   
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="id_ctrl" text="DeviceOutput Id"></kendo-label>
+  
+          <input readonly formControlName="id" kendoTextBox #id_ctrl />
+   
+        </kendo-formfield>
+        <kendo-formfield class="col-12">
+  
+          <kendo-label [for]="pc_ctrl" text="Process Code *"></kendo-label>
+   
+          <input formControlName="pc" kendoTextBox #pc_ctrl />
+  
+        </kendo-formfield>
+
+        <kendo-formfield class="col-6">
+  
+            <kendo-label [for]="unitTypeId_ctrl" text="UnitTypeName"></kendo-label>
+     
+            <kendo-dropdownlist [data]="unitTypeData" formControlName="unitTypeId" kendoTextBox #unitTypeId_ctrl
+            [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+    
+        </kendo-formfield>
+
+        <div class="row" style="padding:10px;">
+          <div class=" col-4">
+            <kendo-label [for]="alert_ctrl" text="Alert"></kendo-label>&nbsp;
+            <input style="vertical-align: text-bottom;" type="radio" name="eventType" value="alert" #alert_ctrl  
+                [checked]="this.typeEvent=='alert'" (change)="handleChange($event)"  kendoRadioButton />
+          </div>
+
+          <div class="col-4">
+            <kendo-label [for]="state_ctrl" text="State "></kendo-label>&nbsp;
+            <input type="radio" name="eventType" value="state" #state_ctrl  
+                [checked]="this.typeEvent=='state'"  (change)="handleChange($event)" kendoRadioButton />
+          </div>
+          
+          <div class="col-4">
+            <kendo-label [for]="meas_ctrl" text="Measurement "></kendo-label>&nbsp;
+            <input type="radio" name="eventType" value="meas" #meas_ctrl  
+              [checked]="this.typeEvent=='meas'"     (change)="handleChange($event)" kendoRadioButton />
+          </div>
+        </div>
+                
+        <div *ngIf="this.typeEvent=='alert'">
+          <kendo-formfield class="col-12" >
+           
+              <kendo-label [for]="eventAlertTypeId_ctrl" text="Alert"></kendo-label>
+      
+              <kendo-dropdownlist [data]="alertData" formControlName="eventStateTypeId" kendoTextBox #eventAlertTypeId_ctrl
+              [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+            
+          </kendo-formfield>
+        </div>
+
+        <div *ngIf="this.typeEvent=='state'">
+          <kendo-formfield class="col-12" >
+            
+              <kendo-label [for]="eventStateTypeId_ctrl" text="State"></kendo-label>
+      
+              <kendo-dropdownlist [data]="stateData" formControlName="eventStateTypeId" kendoTextBox #eventStateTypeId_ctrl
+              [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+          
+          </kendo-formfield>
+        </div>
+        <div *ngIf="this.typeEvent=='meas'">
+          <kendo-formfield class="col-12">
+    
+              <kendo-label [for]="measerementTypeId_ctrl" text="Meaurement"></kendo-label>
+      
+              <kendo-dropdownlist [data]="measerementTypeData" formControlName="measurementTypeId" kendoTextBox #measerementTypeId_ctrl
+              [valueField]="'id'" [textField]="'name'" [valuePrimitive]="true"/>
+      
+          </kendo-formfield>
+        </div>
+        
+      </form>
+  
+    </div>
+  
+    <kendo-dialog-actions>
+  
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+  
+      <button kendoButton themeColor="primary" [disabled]="!editForm.valid" (click)="onSave($event)">Save</button>
+  
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
+  

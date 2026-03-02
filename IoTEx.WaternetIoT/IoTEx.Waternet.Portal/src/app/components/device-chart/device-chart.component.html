@@ -1,0 +1,162 @@
+<div class="row">
+    <div class="col-1" style="width:200px">
+        <kendo-label [for]="period_Ctrl" text="Choose Period:"></kendo-label>
+        <kendo-dropdownlist [data]="periodData" formControlName="period" kendoTextBox #period_Ctrl
+            [valueField]="'value'" [textField]="'text'" [valuePrimitive]="true" [value]="periodValue"
+            (valueChange)="changeQuery($event)"/>
+
+    </div>
+
+    <div class="col-1" style="width:200px">
+        <kendo-label [for]="interval_Ctrl" text="Choose Interval:"></kendo-label>
+        <kendo-dropdownlist [data]="intervalData" formControlName="interval" kendoTextBox #interval_Ctrl
+            [valueField]="'value'" [textField]="'text'" [valuePrimitive]="true" [value]="intervalValue"
+            (valueChange)="changeInterval($event)"/>
+    
+    </div>
+    <div class="col-2" style="width:220px">      
+        <kendo-label [for]="startDate_Ctrl" text="Start Date:"></kendo-label>&nbsp;   
+        <kendo-datetimepicker  placeholder="Start Date" #startDate_Ctrl [(value)]="startDate"></kendo-datetimepicker> 
+    
+    </div>    
+    <div class="col-2" style="width:220px">      
+        <kendo-label [for]="endDate_Ctrl" text="End Date:"></kendo-label>
+        <kendo-datetimepicker placeholder="End date" #endDate_Ctrl [(value)]="endDate"></kendo-datetimepicker> 
+    
+    </div>
+    <div class="col-1" style="width:100px">
+        <button kendoButton themeColor="primary" size="large" (click)="OnQuery()" #btnQuery_Ctrl >
+        Query
+        </button>
+    </div>
+    <div class="col-1" style="width:100px">
+        <button kendoButton themeColor="primary" size="large" (click)="OnDownload()" #btnDownload_Ctrl >
+        Download
+        </button>
+    </div>
+</div>
+<hr/>
+<div class="row">
+        
+    <div class="col-12" class="iot-tab">
+        Alert Charts
+    </div>
+
+    <div *ngIf="this.devicePublished!=null && this.myData!=null" class="col-12">
+        <div *ngFor="let alert of this.devicePublished.settings.alerts;">
+            <kendo-chart *ngIf="false"  (seriesClick)="onSeriesClick($event)" [transitions]="false">
+                <kendo-chart-title [text]="alert.name"></kendo-chart-title>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item  [color]="'#777'"
+                      [title]="{ text: 'Count' }">                     
+                    </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item
+                    [categories]="this.labels"  [color]="'#777'"                  >
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item name="Count"
+                        type="column" [stack]="true" [dir]
+                        [data]="this.dataChart[alert.name]?.countValue"
+                        [labels]="{ visible: false, format: '{0}' }">
+                        <kendo-chart-series-item-tooltip background="green" [visible]="true">
+                            <ng-template let-point="point">
+                                X: {{ point.category }}<br />
+                                Y: {{ point?.value }}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>   
+                </kendo-chart-series>
+            </kendo-chart>  
+        </div>
+    </div>
+    <div class="col-12" class="iot-tab">
+        States Charts
+    </div>
+    <div *ngIf="this.devicePublished!=null && this.myData!=null" class="col-12">
+        <div *ngFor="let state of this.devicePublished.settings.states; ">
+            <kendo-chart (seriesClick)="onSeriesClick($event)" [transitions]="false">
+                <kendo-chart-title [text]="state.name + ':' + state.description"></kendo-chart-title>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item  [color]="'#777'"
+                      [title]="{ text: 'Count' }">                     
+                    </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item
+                    [categories]="this.labels"  [color]="'#777'">
+                        <kendo-chart-category-axis-item-labels ></kendo-chart-category-axis-item-labels>
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item name="Count"
+                        type="column" [stack]="true" [dir]
+                        [data]="this.dataChart[state.name]?.countValue"
+                        [labels]="{ visible: false, format: '{0}' }">
+                        <kendo-chart-series-item-tooltip background="green" [visible]="true">
+                            <ng-template let-point="point">
+                                X: {{ point.category }}<br />
+                                Y: {{ point?.value }}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>   
+                </kendo-chart-series>
+            </kendo-chart>  
+        </div>
+    </div>
+    <div class="col-12" class="iot-tab">
+        Measurements Charts
+    </div>
+    <div *ngIf="clickedData" style="margin-top: 20px;">
+        <strong>Clicked Data:</strong> {{ clickedData }}
+    </div>
+    <div *ngIf="this.devicePublished!=null && this.myData!=null" class="col-12">
+        <div *ngFor="let meas of this.devicePublished.settings.measurements;">
+            <kendo-chart (seriesClick)="onSeriesClick($event)" [transitions]="true">
+                
+                <kendo-chart-title [text]="meas.name + ':' + meas.description"></kendo-chart-title>
+                <kendo-chart-value-axis>
+                    <kendo-chart-value-axis-item                       
+                        [color]="'#777'"
+                      [title]="{ text: meas.unit}">                     
+                    </kendo-chart-value-axis-item>
+                </kendo-chart-value-axis>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="this.labels" [color]="'#777'">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item name="Avg"
+                        type="line"                        
+                        [data]="this.dataChart[meas.name]?.avgValue"
+                        [labels]="{ visible: false, format: '{0}' }"
+                        >
+                        <kendo-chart-series-item-tooltip background="green" [visible]="true">
+                            <ng-template let-point="point">
+                                X: {{ point.category }}<br />
+                                Y: {{ point?.value }}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item name="Range"
+                        type="rangeArea"
+                        [data]="this.dataChart[meas.name]?.rangeValues"
+                        [labels]="{ visible: false, format: '{0}' }"
+                        fromField="min"
+                        toField="max"
+                        >
+                        <!-- <kendo-chart-series-item-tooltip background="green" [visible]="true">
+                            <ng-template let-point="point">
+                                X: {{ point.category }}<br />
+                                Min: {{ point.low }}<br />
+                                Max: {{ point.high }}
+                            </ng-template>
+                        </kendo-chart-series-item-tooltip> -->
+                    </kendo-chart-series-item>                    
+                </kendo-chart-series>
+            </kendo-chart>  
+        </div>
+    </div>
+</div>

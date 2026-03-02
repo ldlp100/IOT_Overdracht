@@ -1,0 +1,8 @@
+<div class="detail-project-detail">
+  <p>Project Name: <span>{{project?.name}}</span></p>
+  <p>Devices: </p>
+
+  <app-grid-project-device [projectId]="this.id" *ngIf="this.id!=undefined"/>
+
+  
+</div>

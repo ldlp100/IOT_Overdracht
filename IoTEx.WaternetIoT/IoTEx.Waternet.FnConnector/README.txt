@@ -1,0 +1,1 @@
+﻿curl -vX POST -d @asanew.json "http://localhost:7090/api/ParseIoTMessage?network=LORAWAN_KERLINK"

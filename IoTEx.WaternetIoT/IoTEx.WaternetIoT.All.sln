@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.WaternetIoT.Model", "IoTEx.WaternetIoT.Model\IoTEx.WaternetIoT.Model.csproj", "{B335D6D7-6A2E-45E6-A368-DB85A4D034FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.WaternetIoT.DAL", "IoTEx.WaternetIoT.DAL\IoTEx.WaternetIoT.DAL.csproj", "{EE822D05-572A-4834-82FE-C42E37942E94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.Waternet.API", "IoTEx.Waternet.API\IoTEx.Waternet.API.csproj", "{0E8AD96A-3F93-467C-8F02-9427AEDAEF4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.Waternet.API.Test", "IoTEx.Waternet.API.Test\IoTEx.Waternet.API.Test.csproj", "{BB909DB0-6AF0-4EC8-AC07-5783BDD97CB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8BBA81C8-1479-4089-9560-854D65C2AD90}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.Waternet.Storage", "IoTEx.Waternet.Storage\IoTEx.Waternet.Storage.csproj", "{A843C175-A3DB-4922-9CA4-765ABE26F69A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.Waternet.FnConnector", "IoTEx.Waternet.FnConnector\IoTEx.Waternet.FnConnector.csproj", "{73C46911-8742-4F55-B717-265B2A3D4525}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTEx.Waternet.Parser", "IoTEx.Waternet.Parser\IoTEx.Waternet.Parser.csproj", "{7E99BA32-EA4F-449A-B4CD-2AE68C8888EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B335D6D7-6A2E-45E6-A368-DB85A4D034FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B335D6D7-6A2E-45E6-A368-DB85A4D034FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B335D6D7-6A2E-45E6-A368-DB85A4D034FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B335D6D7-6A2E-45E6-A368-DB85A4D034FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE822D05-572A-4834-82FE-C42E37942E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE822D05-572A-4834-82FE-C42E37942E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE822D05-572A-4834-82FE-C42E37942E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE822D05-572A-4834-82FE-C42E37942E94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8AD96A-3F93-467C-8F02-9427AEDAEF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8AD96A-3F93-467C-8F02-9427AEDAEF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8AD96A-3F93-467C-8F02-9427AEDAEF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8AD96A-3F93-467C-8F02-9427AEDAEF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB909DB0-6AF0-4EC8-AC07-5783BDD97CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB909DB0-6AF0-4EC8-AC07-5783BDD97CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB909DB0-6AF0-4EC8-AC07-5783BDD97CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB909DB0-6AF0-4EC8-AC07-5783BDD97CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A843C175-A3DB-4922-9CA4-765ABE26F69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A843C175-A3DB-4922-9CA4-765ABE26F69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A843C175-A3DB-4922-9CA4-765ABE26F69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A843C175-A3DB-4922-9CA4-765ABE26F69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C46911-8742-4F55-B717-265B2A3D4525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C46911-8742-4F55-B717-265B2A3D4525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C46911-8742-4F55-B717-265B2A3D4525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C46911-8742-4F55-B717-265B2A3D4525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E99BA32-EA4F-449A-B4CD-2AE68C8888EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E99BA32-EA4F-449A-B4CD-2AE68C8888EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E99BA32-EA4F-449A-B4CD-2AE68C8888EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E99BA32-EA4F-449A-B4CD-2AE68C8888EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85F79EFA-5672-469F-9272-5A4E108D0FD6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+.name {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .values {
+    white-space: nowrap;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .values div {
+    white-space: nowrap;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  
+    .values p {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+  

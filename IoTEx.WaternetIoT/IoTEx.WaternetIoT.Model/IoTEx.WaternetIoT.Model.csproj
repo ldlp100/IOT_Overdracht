@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="DTOs\Old\**" />
+    <EmbeddedResource Remove="DTOs\Old\**" />
+    <None Remove="DTOs\Old\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DeviceModels\IoTDeviceEvent.cs" />
+    <Compile Remove="DeviceModels\IoTDeviceInfo.cs" />
+    <Compile Remove="DeviceModels\IoTDeviceMessage.cs" />
+    <Compile Remove="DeviceModels\IoTDeviceOutput.cs" />
+    <Compile Remove="DeviceModels\IoTNetworkInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diagrams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

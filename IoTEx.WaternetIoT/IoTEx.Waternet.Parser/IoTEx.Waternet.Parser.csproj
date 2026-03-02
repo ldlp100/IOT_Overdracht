@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IoTEx.Waternet.Common\IoTEx.Waternet.Common.csproj" />
+    <ProjectReference Include="..\IoTEx.WaternetIoT.Model\IoTEx.WaternetIoT.Model.csproj" />
+  </ItemGroup>
+</Project>

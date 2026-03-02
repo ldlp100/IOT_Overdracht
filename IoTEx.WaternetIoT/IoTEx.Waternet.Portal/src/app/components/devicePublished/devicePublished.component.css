@@ -1,0 +1,55 @@
+.device {
+    margin: 0 15rem;
+}
+
+
+
+.active {
+  font-weight: bold;
+  padding: 5px 10px;
+  color: white;
+  background-color: red;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.isactive {
+  background-color: green;
+}
+.isNotTracing {
+  background-color: rgb(42, 41, 41);
+}
+.isTracing {
+  background-color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+@media only screen  {
+  .device {
+    margin: 0 10rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .device {
+    margin: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .device {
+    margin: 0 1rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .device {
+    margin: 0 1rem;
+  }
+}
+.iot-table {
+  width: 100%;
+  background-color:  #444;
+  padding: 5px 10px;
+}

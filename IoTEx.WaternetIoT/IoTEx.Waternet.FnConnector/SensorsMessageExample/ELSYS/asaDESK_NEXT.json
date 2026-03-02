@@ -1,0 +1,55 @@
+[
+  {
+    "payload": {
+      "id": "5cc0a864d128130001121298",
+      "endDevice": {
+        "devEui": "A81758FFFE03E6FB",
+        "devAddr": "020007D6",
+        "cluster": {
+          "id": 3
+        }
+      },
+      "fPort": 1,
+      "fCntDown": 0,
+      "fCntUp": 7,
+      "adr": false,
+      "confirmed": false,
+      "encrypted": false,
+      "payload": "01010002360400010500070d861100",
+      "recvTime": 1556129892635,
+      "ulFrequency": 868.5,
+      "modulation": "LORA",
+      "dataRate": "SF12BW125",
+      "codingRate": "4/5",
+      "gwCnt": 1,
+      "gwInfo": [
+        {
+          "gwEui": "7276FF002E062DF0",
+          "rfRegion": "EU868",
+          "rssi": -108,
+          "rssis": -109,
+          "rssisd": 0,
+          "snr": 3,
+          "latitude": 52.34706,
+          "longitude": 4.58067,
+          "altitude": 34,
+          "channel": 7,
+          "radioId": 0,
+          "antenna": 0,
+          "frequencyOffset": 8593
+        }
+      ]
+    },
+    "EventProcessedUtcTime": "2019-04-23T18:43:51.7796146Z",
+    "PartitionId": 2,
+    "EventEnqueuedUtcTime": "2019-04-23T18:43:51.706Z",
+    "IoTHub": {
+      "MessageId": null,
+      "CorrelationId": null,
+      "ConnectionDeviceId": "IOTDEV_KERLINK_LORAWAN",
+      "ConnectionDeviceGenerationId": "636913870742807838",
+      "EnqueuedTime": "2019-04-23T18:43:51.694Z",
+      "StreamId": null
+    }
+  }
+]

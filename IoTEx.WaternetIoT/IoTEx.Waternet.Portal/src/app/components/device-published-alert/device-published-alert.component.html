@@ -1,0 +1,13 @@
+<div class="row">
+    <div *ngFor="let alert of this.alerts" class="col-4">
+        <div>
+            <label class="name">{{alert?.name}}</label>
+            
+            <div *ngFor="let value of alert.values; last as isLast">
+                <label class="value">{{value?.value}}</label>  
+                <label>{{value?.name}}</label>
+              
+            </div>
+        </div>
+    </div>
+</div>

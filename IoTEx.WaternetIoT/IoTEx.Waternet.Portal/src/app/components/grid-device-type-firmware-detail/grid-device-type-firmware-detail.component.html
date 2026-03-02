@@ -1,0 +1,31 @@
+<kendo-tabstrip>
+    <kendo-tabstrip-tab [title]="'States'" [selected]="true">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-firmware-state [deviceType]="deviceType" [deviceTypeFirmware]="deviceTypeFirmware"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+
+    <kendo-tabstrip-tab [title]="'Alerts'">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-firmware-alert [deviceType]="deviceType" [deviceTypeFirmware]="deviceTypeFirmware"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Measurements'">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-firmware-measurement-type [deviceType]="deviceType" [deviceTypeFirmware]="deviceTypeFirmware"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Configurations'">
+      <ng-template kendoTabContent>
+        <app-grid-device-type-firmware-configuration [deviceType]="deviceType" [deviceTypeFirmware]="deviceTypeFirmware"/>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'Documents'">
+      <ng-template kendoTabContent>
+        Documents
+      </ng-template>
+    </kendo-tabstrip-tab>
+  <kendo-tabstrip>
